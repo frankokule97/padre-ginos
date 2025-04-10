@@ -2,7 +2,7 @@
   "name": "padre-ginos",
   "version": "1.0.0",
   "description": "",
-  "main": "src/App.js",
+  "main": "src/App.jsx",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "eslint-plugin-react": "^7.37.1",
     "vite": "^6.2.5"
   }
 }
