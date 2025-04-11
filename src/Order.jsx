@@ -16,8 +16,7 @@ export default function Order() {
 
   if (!loading) {
     selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
-    console.log("selectedPizza1:", selectedPizza);
-    console.log("pizzaType1:", pizzaType);
+    price = intl.format(selectedPizza.sizes[pizzaSize]);
   }
 
   async function fetchPizzaTypes() {
@@ -28,11 +27,8 @@ export default function Order() {
   }
 
   useEffect(() => {
-    fetchPizzaTypes();
+    fetchPizzaTypes(pizzaSize);
   }, []);
-
-  console.log("selectedPizza2:", selectedPizza);
-  console.log("pizzaType2:", pizzaType);
 
   return (
     <div className="order">
@@ -92,15 +88,19 @@ export default function Order() {
             </div>
           </div>
           <button type="submit">Add to Cart</button>
+        </div>
+        {loading ? (
+          <h1>Loading pizza...</h1>
+        ) : (
           <div className="order-pizza">
             <Pizza
               name={selectedPizza?.name}
               description={selectedPizza?.description}
               image={selectedPizza?.image}
             />
-            <p>$13.37</p>
+            <p>{price}</p>
           </div>
-        </div>
+        )}
       </form>
     </div>
   );
