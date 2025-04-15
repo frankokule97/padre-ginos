@@ -1,5 +1,4 @@
 import { usePizzaOfTheDay } from "./usePizzaOfTheDay";
-import Pizza from "./Pizza.jsx";
 
 const intl = new Intl.NumberFormat("en-US", {
   style: "currency",
